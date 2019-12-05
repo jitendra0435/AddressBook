@@ -8,12 +8,16 @@ public class AddressBookTest {
     public AddressBookTest() throws FileNotFoundException {
     }
     @Test
-    public void WriteAddressBookPersonDetails_IntoJson() throws IOException {
-        addressBook.addNewPesonInto_AddressBook("jitendrAB", "Patil","Maharashtra", "Thane", "Thane", 11212, 88888888);
+    public void writeAddressBookPersonDetails_IntoJson() throws IOException {
+        addressBook.addNewPesonInto_AddressBook("Abhi", "Patil","Maharashtra", "Thane", "Thane", 11212, 88888888);
     }
     @Test
-    public void PrintAllEntries(){
+    public void printAllEntries(){
         addressBook.printAllEntriZs();
+    }
+    @Test
+    public void  deletePerson() throws IOException {
+        addressBook.deletePerson("Rahul");
     }
 }
 

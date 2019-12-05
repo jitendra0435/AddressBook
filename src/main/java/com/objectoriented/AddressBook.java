@@ -14,7 +14,7 @@ public class AddressBook implements AddressBookInterface {
     public AddressBook() throws FileNotFoundException {
     }
     @Override
-    public void addNewPesonInto_AddressBook(String firstName,String lastName,String state, String city, String address, int zipCode,int phoneNumber) throws IOException {
+   public void addNewPesonInto_AddressBook(String firstName,String lastName,String state, String city, String address, int zipCode,int phoneNumber) throws IOException {
         addressBookPOJO.setFirstName(firstName);
         addressBookPOJO.setLastName(lastName);
         addressBookPOJO.setState(state);
@@ -49,5 +49,17 @@ public class AddressBook implements AddressBookInterface {
                 System.out.println(personDetails[entries]);
             }
         }
+
+    }
+    @Override
+    public void deletePerson(String firstName) throws IOException {
+        if(personDetails!=null)
+            for(int entries=0;entries<personDetails.length;entries++){
+                if(!personDetails[entries].firstName.equals(firstName)){
+                    addDetails.add(personDetails[entries]);
+                }
+            }
+        writeIntoJSON(addDetails);
+
     }
 }
