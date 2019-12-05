@@ -7,10 +7,12 @@ import java.util.List;
 public class AddressBook implements AddressBookInterface {
     static String CONTACT_DETAILS_JSON= "/home/admin1/ObjectOriented/src/test/resources/addressBOOK.JSON";
     AddressBookPOJO addressBookPOJO = new AddressBookPOJO();
+    Gson gson = new Gson();
+    BufferedReader br = new BufferedReader(new FileReader(CONTACT_DETAILS_JSON));
+    AddressBookPOJO[] personDetails=gson.fromJson(br,AddressBookPOJO[].class);
     List<AddressBookPOJO>addDetails=new ArrayList<>();
     public AddressBook() throws FileNotFoundException {
     }
-
     @Override
     public void addNewPesonInto_AddressBook(String firstName,String lastName,String state, String city, String address, int zipCode,int phoneNumber) throws IOException {
         addressBookPOJO.setFirstName(firstName);
@@ -21,6 +23,9 @@ public class AddressBook implements AddressBookInterface {
         addressBookPOJO.setZipCode(zipCode);
         addressBookPOJO.setPhoneNumber(phoneNumber);
         addDetails.add(addressBookPOJO);
+        if(personDetails!=null){
+            readJsonDocument();
+        }
         writeIntoJSON(addDetails);
     }
     private static void writeIntoJSON(List<AddressBookPOJO> addDetails) throws IOException {
@@ -30,5 +35,19 @@ public class AddressBook implements AddressBookInterface {
         writer.write(json);
         writer.close();
     }
-
+    public void readJsonDocument(){
+        for(int records=0;records<personDetails.length;records++){
+            if(personDetails[records]!=null){
+                addDetails.add(personDetails[records]);
+            }
+        }
+    }
+    @Override
+    public void printAllEntriZs() {
+        if(personDetails!=null){
+            for (int entries = 0; entries < personDetails.length; entries++) {
+                System.out.println(personDetails[entries]);
+            }
+        }
+    }
 }

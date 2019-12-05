@@ -9,7 +9,11 @@ public class AddressBookTest {
     }
     @Test
     public void WriteAddressBookPersonDetails_IntoJson() throws IOException {
-        addressBook.addNewPesonInto_AddressBook("jitendrA", "Patil","Maharashtra", "Thane", "Thane", 11212, 88888888);
+        addressBook.addNewPesonInto_AddressBook("jitendrAB", "Patil","Maharashtra", "Thane", "Thane", 11212, 88888888);
+    }
+    @Test
+    public void PrintAllEntries(){
+        addressBook.printAllEntriZs();
     }
 }
 

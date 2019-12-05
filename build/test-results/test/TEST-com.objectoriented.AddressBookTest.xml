@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-05T09:08:36" hostname="admin1-desktop" time="0.052">
+<testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-05T09:43:09" hostname="admin1-desktop" time="0.001">
   <properties/>
-  <testcase name="WriteAddressBookPersonDetails_IntoJson" classname="com.objectoriented.AddressBookTest" time="0.052"/>
+  <testcase name="PrintAllEntries" classname="com.objectoriented.AddressBookTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
