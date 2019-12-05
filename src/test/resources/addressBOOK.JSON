@@ -1,1 +1,37 @@
-[{"firstName":"Abhi","lastName":"Patil","address":"Thane","state":"Maharashtra","city":"Thane","zipCode":11212,"phoneNumber":88888888},{"firstName":"Abhi","lastName":"Patil","address":"Thane","state":"Maharashtra","city":"Thane","zipCode":11212,"phoneNumber":88888888},{"firstName":"Jitendra","lastName":"Patil","address":"Thane","state":"Maharashtra","city":"Thane","zipCode":11212,"phoneNumber":88888888}]
+[
+  {
+    "firstName": "rahul",
+    "lastName": "Patil",
+    "address": "Thane",
+    "state": "Maharashtra",
+    "city": "jaipur",
+    "zipCode": 11212,
+    "phoneNumber": 88888888
+  },
+  {
+    "firstName": "Jitendra",
+    "lastName": "Patil",
+    "address": "Thane",
+    "state": "Maharashtra",
+    "city": "jaipur",
+    "zipCode": 11212,
+    "phoneNumber": 88888888
+  },
+  {
+    "firstName": "Abhi",
+    "lastName": "Patil",
+    "address": "Thane",
+    "state": "Maharashtra",
+    "city": "Thane",
+    "zipCode": 11212,
+    "phoneNumber": 88888888
+  },
+  {
+    "zipCode": 0,
+    "phoneNumber": 0
+  },
+  {
+    "zipCode": 0,
+    "phoneNumber": 0
+  }
+]

@@ -5,16 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressBook implements AddressBookInterface {
-    static String CONTACT_DETAILS_JSON= "/home/admin1/ObjectOriented/src/test/resources/addressBOOK.JSON";
+    static String CONTACT_DETAILS_JSON = "/home/admin1/ObjectOriented/src/test/resources/addressBOOK.JSON";
     AddressBookPOJO addressBookPOJO = new AddressBookPOJO();
     Gson gson = new Gson();
     BufferedReader br = new BufferedReader(new FileReader(CONTACT_DETAILS_JSON));
-    AddressBookPOJO[] personDetails=gson.fromJson(br,AddressBookPOJO[].class);
-    List<AddressBookPOJO>addDetails=new ArrayList<>();
+    AddressBookPOJO[] personDetails = gson.fromJson(br, AddressBookPOJO[].class);
+    List<AddressBookPOJO> addDetails = new ArrayList<>();
+
     public AddressBook() throws FileNotFoundException {
     }
+
     @Override
-   public void addNewPesonInto_AddressBook(String firstName,String lastName,String state, String city, String address, int zipCode,int phoneNumber) throws IOException {
+    public void addNewPesonInto_AddressBook(String firstName, String lastName, String state, String city, String address, int zipCode, int phoneNumber) throws IOException {
         addressBookPOJO.setFirstName(firstName);
         addressBookPOJO.setLastName(lastName);
         addressBookPOJO.setState(state);
@@ -23,11 +25,12 @@ public class AddressBook implements AddressBookInterface {
         addressBookPOJO.setZipCode(zipCode);
         addressBookPOJO.setPhoneNumber(phoneNumber);
         addDetails.add(addressBookPOJO);
-        if(personDetails!=null){
+        if (personDetails != null) {
             readJsonDocument();
         }
         writeIntoJSON(addDetails);
     }
+
     private static void writeIntoJSON(List<AddressBookPOJO> addDetails) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(addDetails);
@@ -35,16 +38,17 @@ public class AddressBook implements AddressBookInterface {
         writer.write(json);
         writer.close();
     }
-    public void readJsonDocument(){
-        for(int records=0;records<personDetails.length;records++){
-            if(personDetails[records]!=null){
+
+    public void readJsonDocument() {
+        for (int records = 0; records < personDetails.length; records++) {
+            if (personDetails[records] != null) {
                 addDetails.add(personDetails[records]);
             }
         }
     }
     @Override
     public void printAllEntriZs() {
-        if(personDetails!=null){
+        if (personDetails != null) {
             for (int entries = 0; entries < personDetails.length; entries++) {
                 System.out.println(personDetails[entries]);
             }
@@ -53,13 +57,29 @@ public class AddressBook implements AddressBookInterface {
     }
     @Override
     public void deletePerson(String firstName) throws IOException {
-        if(personDetails!=null)
-            for(int entries=0;entries<personDetails.length;entries++){
-                if(!personDetails[entries].firstName.equals(firstName)){
+        if (personDetails != null)
+            for (int entries = 0; entries < personDetails.length; entries++) {
+                if (!personDetails[entries].firstName.equals(firstName)) {
                     addDetails.add(personDetails[entries]);
                 }
             }
         writeIntoJSON(addDetails);
 
     }
+    @Override
+    public void editPersonDetails(int index, String property, String updatedValue) throws IOException {
+        readJsonDocument();
+                if (property.equals("city"))
+                    personDetails[index].setCity(updatedValue);
+                else if (property.equals("state"))
+                    personDetails[index].setState(updatedValue);
+                else if (property.equals("zipCode"))
+                    personDetails[index].setState(updatedValue);
+                else if (property.equals("phoneNumber"))
+                    personDetails[index].setState(updatedValue);
+                addDetails.add(addressBookPOJO);
+                writeIntoJSON(addDetails);
+        }
 }
+
+
