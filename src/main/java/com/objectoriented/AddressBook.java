@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class AddressBook implements AddressBookInterface {
+    boolean flag =false;
     static String CONTACT_DETAILS_JSON = "/home/admin1/ObjectOriented/src/test/resources/addressBOOK.JSON";
     AddressBookPOJO addressBookPOJO = new AddressBookPOJO();
     Gson gson = new Gson();
@@ -15,7 +16,7 @@ public class AddressBook implements AddressBookInterface {
     }
 
     @Override
-    public void addNewPesonInto_AddressBook(String firstName, String lastName, String state, String city, String address, String zipCode, String phoneNumber) throws IOException {
+    public boolean addNewPesonInto_AddressBook(String firstName, String lastName, String state, String city, String address, String zipCode, String phoneNumber) throws IOException {
         addressBookPOJO.setFirstName(firstName);
         addressBookPOJO.setLastName(lastName);
         addressBookPOJO.setState(state);
@@ -26,8 +27,9 @@ public class AddressBook implements AddressBookInterface {
         addDetails.add(addressBookPOJO);
         if (personDetails != null) {
             readJsonDocument();
+            flag =true;
         }
-        writeIntoJSON(addDetails);
+        return flag;
     }
 
     private static void writeIntoJSON(List<AddressBookPOJO> addDetails) throws IOException {
@@ -47,17 +49,20 @@ public class AddressBook implements AddressBookInterface {
     }
 
     @Override
-    public void printAllEntriZs() {
+    public boolean printAllEntriZs() {
+        System.out.println("\t"+"Name"+"\t"+"Address"+"\t"+"    City"+"\t"+"State"+"\t"+"    Zip"+"\t"+"    Phone");
         if (personDetails != null) {
-            for (int entries = 0; entries < personDetails.length; entries++) {
-                System.out.println(personDetails[entries].firstName + "\t" + personDetails[entries].lastName + "\t"
-                        + personDetails[entries].zipCode + "\t" + personDetails[entries].city + "\n");
+            for (int entries = 0; entries <personDetails.length; entries++) {
+                System.out.println("\t"+personDetails[entries].getFirstName() + "\t" + personDetails[entries].getLastName() + "\t"
+                        + personDetails[entries].getZipCode() + "\t" + personDetails[entries].getPhoneNumber());
             }
         }
+        flag=true;
+        return flag;
     }
 
     @Override
-    public void deletePerson(String firstName) throws IOException {
+    public boolean deletePerson(String firstName) throws IOException {
         if (personDetails != null)
             for (int entries = 0; entries < personDetails.length; entries++) {
                 if (!personDetails[entries].firstName.equals(firstName)) {
@@ -65,10 +70,12 @@ public class AddressBook implements AddressBookInterface {
                 }
             }
         writeIntoJSON(addDetails);
+        flag =true;
+        return flag;
     }
 
     @Override
-    public void editPersonDetails(int index, String property, String updatedValue) throws IOException {
+    public boolean editPersonDetails(int index, String property, String updatedValue) throws IOException {
         readJsonDocument();
         if (property.equals("city"))
             personDetails[index].setCity(updatedValue);
@@ -80,22 +87,26 @@ public class AddressBook implements AddressBookInterface {
             personDetails[index].setState(updatedValue);
         addDetails.add(addressBookPOJO);
         writeIntoJSON(addDetails);
+        flag=true;
+        return flag;
     }
-
     @Override
-    public void sortRecordByFirstName() throws IOException {
+    public boolean sortRecordByFirstName() throws IOException {
         readJsonDocument();
         Comparator<AddressBookPOJO> comparing = Comparator.comparing(AddressBookPOJO::getFirstName);
         addDetails.sort(comparing);
         writeIntoJSON(addDetails);
+        flag=true;
+        return flag;
     }
-
     @Override
-    public void sortRecordByZipCode() throws IOException {
+    public boolean sortRecordByZipCode() throws IOException {
         readJsonDocument();
         Comparator<AddressBookPOJO> comparing = Comparator.comparing(AddressBookPOJO::getZipCode);
         addDetails.sort(comparing);
         writeIntoJSON(addDetails);
+        flag=true;
+        return  flag;
     }
 
     @Override
@@ -115,7 +126,7 @@ public class AddressBook implements AddressBookInterface {
     }
 
     @Override
-    public boolean OpenExistingFile(String newfile) throws AddressBookCustumException {
+    public boolean openExistingFile(String newfile) throws AddressBookCustumException {
         File listOfFile = new File("/home/admin1/ObjectOriented/src/test/resources/");
         File[] noOffiles = listOfFile.listFiles();
         for (File file : noOffiles) {
@@ -123,6 +134,7 @@ public class AddressBook implements AddressBookInterface {
         }
         File existFile = new File("/home/admin1/ObjectOriented/src/test/resources/" + newfile);
         if (existFile.exists()) {
+            printAllEntriZs();
             return true;
         } else
             throw new AddressBookCustumException(AddressBookCustumException.ExceptionType.FILE_NOT_FOUND);

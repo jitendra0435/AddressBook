@@ -10,31 +10,39 @@ public class AddressBookTest {
     }
     @Test
     public void writeAddressBookPersonDetails_IntoJson() throws IOException {
-        addressBook.addNewPesonInto_AddressBook("rahul", "Patil", "Maharashtra", "Thane", "Thane", "123789", "88888888");
+        boolean flag=addressBook.addNewPesonInto_AddressBook("rahul", "Patil", "Maharashtra", "Thane", "Thane", "123789", "88888888");
+        Assert.assertEquals(flag,true);
     }
     @Test
     public void printAllEntries(){
-        addressBook.printAllEntriZs();
+        boolean print=addressBook.printAllEntriZs();
+        Assert.assertEquals(print,true);
     }
     @Test
     public void  deletePerson() throws IOException {
-        addressBook.deletePerson("vijay");
+        boolean deleted=addressBook.deletePerson("vijay");
+        Assert.assertEquals(deleted,true);
+
     }
     @Test
     public void editpersonDetails() throws IOException {
-        addressBook.editPersonDetails(1,"city","jaipur");
+        boolean edited=addressBook.editPersonDetails(1,"city","jaipur");
+        Assert.assertEquals(edited,true);
     }
     @Test
     public void sortRecordsByName() throws IOException {
-        addressBook.sortRecordByFirstName();
-    }
-    @Test
-    public void sortRecordsByZipCode() throws IOException {
-        addressBook.sortRecordByZipCode();
+        boolean sortByName=addressBook.sortRecordByFirstName();
+        Assert.assertEquals(sortByName,true);
     }
 
     @Test
-    public void createNewAddressBook() throws IOException{
+    public void sortRecordsByZipCode() throws IOException {
+        boolean sortByZip=addressBook.sortRecordByZipCode();
+        Assert.assertEquals(sortByZip,true);
+    }
+
+    @Test
+    public void givenMethode_createNewAddressBookIfCreatesFile_ReturnTrue() throws IOException{
         boolean created= false;
         try {
             created = addressBook.createAddressBook("newFile1");
@@ -44,12 +52,34 @@ public class AddressBookTest {
         }
     }
     @Test
-    public void OpenExistingFile(){
+    public void givenMethode_createNewAddressBookIfNotCreateFileReturnFalse() throws IOException{
+        boolean created= false;
+        try {
+            created = addressBook.createAddressBook("newFile1");
+            Assert.assertEquals(created,true);
+        } catch (AddressBookCustumException e) {
+            System.out.println("File_Already_Present");
+            Assert.assertEquals(AddressBookCustumException.ExceptionType.FILE_ALREADY_PRESENT,e.type);
+        }
+    }
+    @Test
+    public void givenMethod_openExistingFileIfFilePresent_ReturnTrue(){
         boolean open= false;
         try {
-            open = addressBook.OpenExistingFile("newFile.json");
+            open = addressBook.openExistingFile("newFile.json");
             Assert.assertEquals(open,true);
         } catch (AddressBookCustumException e) {
+            Assert.assertEquals(AddressBookCustumException.ExceptionType.FILE_NOT_FOUND,e.type);
+        }
+    }
+    @Test
+    public void givenMethod_openExistingFileIfFileNotPresent_ReturnFalse(){
+        boolean open= false;
+        try {
+            open = addressBook.openExistingFile("newFile33.json");
+            Assert.assertEquals(open,true);
+        } catch (AddressBookCustumException e) {
+            System.out.println("file_Not_Found");
             Assert.assertEquals(AddressBookCustumException.ExceptionType.FILE_NOT_FOUND,e.type);
         }
     }
