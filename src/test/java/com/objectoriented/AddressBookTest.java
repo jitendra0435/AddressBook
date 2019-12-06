@@ -9,7 +9,7 @@ public class AddressBookTest {
     }
     @Test
     public void writeAddressBookPersonDetails_IntoJson() throws IOException {
-        addressBook.addNewPesonInto_AddressBook("rahul", "Patil","Maharashtra", "Thane", "Thane", 11212, 88888888);
+        addressBook.addNewPesonInto_AddressBook("prashant", "Patil", "Maharashtra", "Thane", "Thane", "11212", "88888888");
     }
     @Test
     public void printAllEntries(){
@@ -17,13 +17,17 @@ public class AddressBookTest {
     }
     @Test
     public void  deletePerson() throws IOException {
-        addressBook.deletePerson("Rahul");
+        addressBook.deletePerson("vijay");
     }
     @Test
     public void editpersonDetails() throws IOException {
         addressBook.editPersonDetails(1,"city","jaipur");
     }
 
+    @Test
+    public void sortRecordsByName() throws IOException {
+        addressBook.sortRecordByFirstName();
+    }
 }
 
 

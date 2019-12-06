@@ -1,8 +1,7 @@
 package com.objectoriented;
 import com.google.gson.Gson;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class AddressBook implements AddressBookInterface {
     static String CONTACT_DETAILS_JSON = "/home/admin1/ObjectOriented/src/test/resources/addressBOOK.JSON";
@@ -16,7 +15,7 @@ public class AddressBook implements AddressBookInterface {
     }
 
     @Override
-    public void addNewPesonInto_AddressBook(String firstName, String lastName, String state, String city, String address, int zipCode, int phoneNumber) throws IOException {
+    public void addNewPesonInto_AddressBook(String firstName, String lastName, String state, String city, String address, String zipCode, String phoneNumber) throws IOException {
         addressBookPOJO.setFirstName(firstName);
         addressBookPOJO.setLastName(lastName);
         addressBookPOJO.setState(state);
@@ -53,7 +52,6 @@ public class AddressBook implements AddressBookInterface {
                 System.out.println(personDetails[entries]);
             }
         }
-
     }
     @Override
     public void deletePerson(String firstName) throws IOException {
@@ -64,8 +62,8 @@ public class AddressBook implements AddressBookInterface {
                 }
             }
         writeIntoJSON(addDetails);
-
     }
+
     @Override
     public void editPersonDetails(int index, String property, String updatedValue) throws IOException {
         readJsonDocument();
@@ -80,6 +78,14 @@ public class AddressBook implements AddressBookInterface {
                 addDetails.add(addressBookPOJO);
                 writeIntoJSON(addDetails);
         }
+
+    @Override
+    public void sortRecordByFirstName() throws IOException {
+        readJsonDocument();
+        Comparator<AddressBookPOJO> comparing = Comparator.comparing(AddressBookPOJO::getFirstName);
+        addDetails.sort(comparing);
+        writeIntoJSON(addDetails);
+    }
 }
 
 

@@ -3,7 +3,7 @@ public class AddressBookPOJO {
     public AddressBookPOJO() {
     }
     String firstName, lastName, address, state, city;
-    int zipCode,phoneNumber;
+    String zipCode,phoneNumber;
 
     public String getFirstName() {
         return firstName;
@@ -45,19 +45,19 @@ public class AddressBookPOJO {
         this.city = city;
     }
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
