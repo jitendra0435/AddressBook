@@ -8,5 +8,6 @@ public interface AddressBookInterface {
      void editPersonDetails(int index,String firstName,String updatedValue) throws IOException;
      void sortRecordByFirstName() throws IOException;
      void sortRecordByZipCode() throws IOException;
+     boolean createAddressBook(String fileName) throws IOException, AddressBookCustumException;
 }
 

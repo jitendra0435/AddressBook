@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2019-12-06T06:40:45" hostname="admin1-desktop" time="0.003">
   <properties/>
   <testcase name="sortRecordsByZipCode" classname="com.objectoriented.AddressBookTest" time="0.003">
@@ -59,6 +60,11 @@
 	at java.base/java.lang.Thread.run(Thread.java:834)
 </failure>
   </testcase>
+=======
+<testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T06:35:20" hostname="admin1-desktop" time="0.005">
+  <properties/>
+  <testcase name="createNewAddressBook" classname="com.objectoriented.AddressBookTest" time="0.005"/>
+>>>>>>> 2587282e4260040bae5b70d95f8568238c497621
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

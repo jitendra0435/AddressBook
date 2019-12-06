@@ -49,7 +49,8 @@ public class AddressBook implements AddressBookInterface {
     public void printAllEntriZs() {
         if (personDetails != null) {
             for (int entries = 0; entries < personDetails.length; entries++) {
-                System.out.println(personDetails[entries]);
+                System.out.println(personDetails[entries].firstName +"\t"+personDetails[entries].lastName+"\t"
+                +personDetails[entries].zipCode+"\t"+personDetails[entries].city+"\n");
             }
         }
     }
@@ -94,6 +95,23 @@ public class AddressBook implements AddressBookInterface {
         addDetails.sort(comparing);
         writeIntoJSON(addDetails);
     }
+
+    @Override
+    public boolean createAddressBook(String fileName) throws IOException, AddressBookCustumException {
+        String path="/home/admin1/ObjectOriented/src/test/resources/";
+        File file=new File(path+fileName+".json");
+        if(file.exists())
+            throw new AddressBookCustumException(AddressBookCustumException.ExceptionType.FILE_ALREADY_PRESENT);
+        else
+        file.createNewFile();
+        List<String> newlist = new ArrayList<>();
+        String json = gson.toJson(newlist);
+        FileWriter writer = new FileWriter(file);
+        writer.write(json);
+        writer.close();
+        return true;
+    }
+
 }
 
 
