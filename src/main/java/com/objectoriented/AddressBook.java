@@ -86,6 +86,14 @@ public class AddressBook implements AddressBookInterface {
         addDetails.sort(comparing);
         writeIntoJSON(addDetails);
     }
+
+    @Override
+    public void sortRecordByZipCode() throws IOException {
+        readJsonDocument();
+        Comparator<AddressBookPOJO> comparing=Comparator.comparing(AddressBookPOJO::getZipCode);
+        addDetails.sort(comparing);
+        writeIntoJSON(addDetails);
+    }
 }
 
 

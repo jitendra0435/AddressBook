@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T04:33:25" hostname="admin1-desktop" time="0.005">
+<testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2019-12-06T04:58:47" hostname="admin1-desktop" time="34.503">
   <properties/>
-  <testcase name="editpersonDetails" classname="com.objectoriented.AddressBookTest" time="0.005"/>
+  <testcase name="sortRecordsByName" classname="com.objectoriented.AddressBookTest" time="34.503">
+    <skipped/>
+  </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

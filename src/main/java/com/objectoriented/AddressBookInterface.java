@@ -7,5 +7,6 @@ public interface AddressBookInterface {
      void deletePerson(String firstName) throws IOException;
      void editPersonDetails(int index,String firstName,String updatedValue) throws IOException;
      void sortRecordByFirstName() throws IOException;
+     void sortRecordByZipCode() throws IOException;
 }
 
