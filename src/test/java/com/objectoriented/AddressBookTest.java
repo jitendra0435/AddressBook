@@ -37,10 +37,20 @@ public class AddressBookTest {
     public void createNewAddressBook() throws IOException{
         boolean created= false;
         try {
-            created = addressBook.createAddressBook("newFile");
+            created = addressBook.createAddressBook("newFile1");
             Assert.assertEquals(created,true);
         } catch (AddressBookCustumException e) {
             Assert.assertEquals(AddressBookCustumException.ExceptionType.FILE_ALREADY_PRESENT,e.type);
+        }
+    }
+    @Test
+    public void OpenExistingFile(){
+        boolean open= false;
+        try {
+            open = addressBook.OpenExistingFile("newFile.json");
+            Assert.assertEquals(open,true);
+        } catch (AddressBookCustumException e) {
+            Assert.assertEquals(AddressBookCustumException.ExceptionType.FILE_NOT_FOUND,e.type);
         }
     }
 }

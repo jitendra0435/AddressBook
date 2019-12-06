@@ -45,15 +45,17 @@ public class AddressBook implements AddressBookInterface {
             }
         }
     }
+
     @Override
     public void printAllEntriZs() {
         if (personDetails != null) {
             for (int entries = 0; entries < personDetails.length; entries++) {
-                System.out.println(personDetails[entries].firstName +"\t"+personDetails[entries].lastName+"\t"
-                +personDetails[entries].zipCode+"\t"+personDetails[entries].city+"\n");
+                System.out.println(personDetails[entries].firstName + "\t" + personDetails[entries].lastName + "\t"
+                        + personDetails[entries].zipCode + "\t" + personDetails[entries].city + "\n");
             }
         }
     }
+
     @Override
     public void deletePerson(String firstName) throws IOException {
         if (personDetails != null)
@@ -68,17 +70,17 @@ public class AddressBook implements AddressBookInterface {
     @Override
     public void editPersonDetails(int index, String property, String updatedValue) throws IOException {
         readJsonDocument();
-                if (property.equals("city"))
-                    personDetails[index].setCity(updatedValue);
-                else if (property.equals("state"))
-                    personDetails[index].setState(updatedValue);
-                else if (property.equals("zipCode"))
-                    personDetails[index].setState(updatedValue);
-                else if (property.equals("phoneNumber"))
-                    personDetails[index].setState(updatedValue);
-                addDetails.add(addressBookPOJO);
-                writeIntoJSON(addDetails);
-        }
+        if (property.equals("city"))
+            personDetails[index].setCity(updatedValue);
+        else if (property.equals("state"))
+            personDetails[index].setState(updatedValue);
+        else if (property.equals("zipCode"))
+            personDetails[index].setState(updatedValue);
+        else if (property.equals("phoneNumber"))
+            personDetails[index].setState(updatedValue);
+        addDetails.add(addressBookPOJO);
+        writeIntoJSON(addDetails);
+    }
 
     @Override
     public void sortRecordByFirstName() throws IOException {
@@ -91,19 +93,19 @@ public class AddressBook implements AddressBookInterface {
     @Override
     public void sortRecordByZipCode() throws IOException {
         readJsonDocument();
-        Comparator<AddressBookPOJO> comparing=Comparator.comparing(AddressBookPOJO::getZipCode);
+        Comparator<AddressBookPOJO> comparing = Comparator.comparing(AddressBookPOJO::getZipCode);
         addDetails.sort(comparing);
         writeIntoJSON(addDetails);
     }
 
     @Override
     public boolean createAddressBook(String fileName) throws IOException, AddressBookCustumException {
-        String path="/home/admin1/ObjectOriented/src/test/resources/";
-        File file=new File(path+fileName+".json");
-        if(file.exists())
+        String path = "/home/admin1/ObjectOriented/src/test/resources/";
+        File file = new File(path + fileName + ".json");
+        if (file.exists())
             throw new AddressBookCustumException(AddressBookCustumException.ExceptionType.FILE_ALREADY_PRESENT);
         else
-        file.createNewFile();
+            file.createNewFile();
         List<String> newlist = new ArrayList<>();
         String json = gson.toJson(newlist);
         FileWriter writer = new FileWriter(file);
@@ -112,6 +114,17 @@ public class AddressBook implements AddressBookInterface {
         return true;
     }
 
+    @Override
+    public boolean OpenExistingFile(String newfile) throws AddressBookCustumException {
+        File listOfFile = new File("/home/admin1/ObjectOriented/src/test/resources/");
+        File[] noOffiles = listOfFile.listFiles();
+        for (File file : noOffiles) {
+            System.out.println(file.getName());
+        }
+        File existFile = new File("/home/admin1/ObjectOriented/src/test/resources/" + newfile);
+        if (existFile.exists()) {
+            return true;
+        } else
+            throw new AddressBookCustumException(AddressBookCustumException.ExceptionType.FILE_NOT_FOUND);
+    }
 }
-
-

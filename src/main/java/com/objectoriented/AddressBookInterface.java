@@ -9,5 +9,6 @@ public interface AddressBookInterface {
      void sortRecordByFirstName() throws IOException;
      void sortRecordByZipCode() throws IOException;
      boolean createAddressBook(String fileName) throws IOException, AddressBookCustumException;
+     boolean OpenExistingFile(String filename) throws AddressBookCustumException;
 }
 
