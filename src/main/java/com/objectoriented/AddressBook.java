@@ -127,4 +127,12 @@ public class AddressBook implements AddressBookInterface {
         } else
             throw new AddressBookCustumException(AddressBookCustumException.ExceptionType.FILE_NOT_FOUND);
     }
+
+    @Override
+    public boolean saveFile(String fileName) throws IOException {
+        addNewPesonInto_AddressBook("vedant", "Patil", "Maharashtra", "Thane", "Thane", "123789", "88888888");
+        printAllEntriZs();
+        return true;
+    }
+
 }

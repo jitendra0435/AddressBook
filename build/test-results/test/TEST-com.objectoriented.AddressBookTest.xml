@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T09:58:17" hostname="admin1-desktop" time="0.003">
+<testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T12:49:46" hostname="admin1-desktop" time="0.011">
   <properties/>
-  <testcase name="OpenExistingFile" classname="com.objectoriented.AddressBookTest" time="0.003"/>
-  <system-out><![CDATA[newFile.json
-addressBOOK.JSON
-newFile1.json
+  <testcase name="saveAddressBook" classname="com.objectoriented.AddressBookTest" time="0.011"/>
+  <system-out><![CDATA[vedant	Patil	123789	Thane
+
+vedant	Patil	123789	Thane
+
+rahul	Patil	123789	Thane
+
+dipak	Patil	123698	jaipur
+
+jitendra	Patil	123456	jaipur
+
+prashant	Patil	123654	Thane
+
+rahul	Patil	123789	Thane
+
+rahul	Patil	123789	Thane
+
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
