@@ -53,10 +53,10 @@ public class AddressBookTest {
             Assert.assertEquals(AddressBookCustumException.ExceptionType.FILE_NOT_FOUND,e.type);
         }
     }
-
     @Test
     public void saveAddressBook() throws IOException {
-        addressBook.saveFile("addressBook.json");
+            boolean save = addressBook.saveFile();
+            Assert.assertEquals(save,true);
     }
 }
 

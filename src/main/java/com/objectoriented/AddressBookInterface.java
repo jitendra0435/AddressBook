@@ -10,6 +10,6 @@ public interface AddressBookInterface {
      void sortRecordByZipCode() throws IOException;
      boolean createAddressBook(String fileName) throws IOException, AddressBookCustumException;
      boolean OpenExistingFile(String filename) throws AddressBookCustumException;
-     boolean saveFile(String fileName) throws IOException;
+     boolean saveFile() throws IOException;
 }
 

@@ -123,14 +123,17 @@ public class AddressBook implements AddressBookInterface {
         }
         File existFile = new File("/home/admin1/ObjectOriented/src/test/resources/" + newfile);
         if (existFile.exists()) {
+            readJsonDocument();
             return true;
         } else
             throw new AddressBookCustumException(AddressBookCustumException.ExceptionType.FILE_NOT_FOUND);
     }
 
     @Override
-    public boolean saveFile(String fileName) throws IOException {
-        addNewPesonInto_AddressBook("vedant", "Patil", "Maharashtra", "Thane", "Thane", "123789", "88888888");
+    public boolean saveFile() throws IOException {
+        addNewPesonInto_AddressBook("vikas", "kale", "Maharashtra", "Thane", "Thane", "123789", "88888888");
+        readJsonDocument();
+        writeIntoJSON(addDetails);
         printAllEntriZs();
         return true;
     }
