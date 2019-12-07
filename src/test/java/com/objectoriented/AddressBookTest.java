@@ -18,7 +18,7 @@ public class AddressBookTest {
     }
     @Test
     public void  deletePerson() throws IOException {
-        addressBook.deletePerson("vijay");
+        addressBook.deletePerson("rahul");
     }
     @Test
     public void editpersonDetails() throws IOException {
@@ -37,7 +37,7 @@ public class AddressBookTest {
     public void createNewAddressBook() throws IOException{
         boolean created= false;
         try {
-            created = addressBook.createAddressBook("newFile1");
+            created = addressBook.createAddressBook("newFile2");
             Assert.assertEquals(created,true);
         } catch (AddressBookCustumException e) {
             Assert.assertEquals(AddressBookCustumException.ExceptionType.FILE_ALREADY_PRESENT,e.type);

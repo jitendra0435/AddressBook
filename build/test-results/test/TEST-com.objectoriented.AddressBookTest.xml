@@ -1,45 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.objectoriented.AddressBookTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2019-12-06T13:22:16" hostname="admin1-desktop" time="0.023">
+<testsuite name="com.objectoriented.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-07T03:55:51" hostname="admin1-desktop" time="0.008">
   <properties/>
-  <testcase name="createNewAddressBook" classname="com.objectoriented.AddressBookTest" time="0.001"/>
-  <testcase name="OpenExistingFile" classname="com.objectoriented.AddressBookTest" time="0.002"/>
-  <testcase name="writeAddressBookPersonDetails_IntoJson" classname="com.objectoriented.AddressBookTest" time="0.005"/>
-  <testcase name="sortRecordsByZipCode" classname="com.objectoriented.AddressBookTest" time="0.002"/>
-  <testcase name="deletePerson" classname="com.objectoriented.AddressBookTest" time="0.001"/>
-  <testcase name="printAllEntries" classname="com.objectoriented.AddressBookTest" time="0.001"/>
-  <testcase name="saveAddressBook" classname="com.objectoriented.AddressBookTest" time="0.001"/>
-  <testcase name="sortRecordsByName" classname="com.objectoriented.AddressBookTest" time="0.001"/>
-  <testcase name="editpersonDetails" classname="com.objectoriented.AddressBookTest" time="0.001"/>
-  <system-out><![CDATA[newFile.json
-addressBOOK.JSON
-newFile1.json
-jitendra	Patil	123456	jaipur
+  <testcase name="saveAddressBook" classname="com.objectoriented.AddressBookTest" time="0.008"/>
+  <system-out><![CDATA[jitendra	Patil	123456	jaipur
 
 prashant	Patil	123654	Thane
 
 dipak	Patil	123698	jaipur
 
-rahul	Patil	123789	Thane
-
 vedant	Patil	123789	Thane
-
-vedant	Patil	123789	Thane
-
-vedant	Patil	123789	Thane
-
-rahul	Patil	123789	Thane
-
-rahul	Patil	123789	Thane
-
-rahul	Patil	123789	Thane
-
-jitendra	Patil	123456	jaipur
-
-prashant	Patil	123654	Thane
-
-dipak	Patil	123698	jaipur
-
-rahul	Patil	123789	Thane
 
 vedant	Patil	123789	Thane
 
@@ -47,11 +16,7 @@ vedant	Patil	123789	Thane
 
 vedant	Patil	123789	Thane
 
-rahul	Patil	123789	Thane
-
-rahul	Patil	123789	Thane
-
-rahul	Patil	123789	Thane
+vedant	Patil	123789	Thane
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
